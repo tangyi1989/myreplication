@@ -20,7 +20,7 @@ type (
 )
 
 const (
-	_DEFAULT_DB = "information_schema"
+	_DEFAULT_DB = "mysql"
 )
 
 func NewConnection() *connection {
