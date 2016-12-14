@@ -835,6 +835,9 @@ func (ev *eventLog) readEvent() (interface{}, error) {
 	case _WRITE_ROWS_EVENTv1:
 		fallthrough
 	case _WRITE_ROWS_EVENTv2:
+		if ev.lastTableMapEvent == nil {
+			return nil, nil
+		}
 		event = &rowsEvent{
 			eventLogHeader:   header,
 			postHeaderLength: ev.headerWriteRowsEventV1Length,
